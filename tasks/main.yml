@@ -1,5 +1,7 @@
 ---
 # tasks file for openwrt-system
-- name: set hostname
-  uci: command=set key="system.@system[0].hostname" value="{{ hostname }}"
+- name: set system parameters
+  uci: command=set key="system.@system[0].{{ item.key }}" value="{{ item.value }}"
+  with_dict:
+    system
   notify: uci commit
