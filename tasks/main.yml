@@ -4,4 +4,5 @@
   uci: command=set key="system.@system[0].{{ item.key }}" value="{{ item.value }}"
   with_dict:
     system
+  when: item.key == "hostname" or item.key == "timezone" or item.key == "zonename"
   notify: uci commit
