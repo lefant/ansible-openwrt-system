@@ -1,3 +1,5 @@
 ---
 # defaults file for openwrt-system
-hostname: OpenWrt
+system:
+  hostname: OpenWRT
+  timezone: UTC
